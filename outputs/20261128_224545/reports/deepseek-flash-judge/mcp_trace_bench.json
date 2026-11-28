@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "name": "deepseek-flash-judge@mcp_trace_bench",
+  "dataset_name": "mcp_trace_bench",
+  "dataset_pretty_name": "MCP Trace Bench",
+  "dataset_description": "Agent Tool Calling Evaluation Benchmark",
+  "model_name": "deepseek-flash-judge",
+  "metrics": [
+    {
+      "identity": {
+        "name": "acc",
+        "aggregation": "mean",
+        "dimensions": {}
+      },
+      "legacy_name": null,
+      "num": 3,
+      "num_correct": 2,
+      "score": 6.67,
+      "macro_score": 6.67,
+      "categories": [
+        {
+          "name": [
+            "default"
+          ],
+          "num": 3,
+          "num_correct": 2,
+          "score": 6.67,
+          "macro_score": 6.67,
+          "subsets": [
+            {
+              "name": "main",
+              "score": 6.67,
+              "num": 3,
+              "num_correct": 2,
+              "metadata": null,
+              "is_aggregate": false
+            }
+          ]
+        }
+      ],
+      "semantics": {
+        "semantic_id": "quality.score.rating",
+        "metric_name": "Average Score",
+        "display_name": null,
+        "kind": "quality",
+        "direction": "higher_is_better",
+        "raw_unit": null,
+        "value_range": {
+          "min": 0.0,
+          "max": 10.0
+        },
+        "display_kind": "number",
+        "display_multiplier": null,
+        "display_unit": "score",
+        "display_precision": 2
+      }
+    }
+  ],
+  "analysis": "## Automatic analysis (rules)\n\nObserved facts and trace findings, not proved root causes.\n\n- Samples 3; task failures 0/0; unknown outcomes 3.\n- Failed samples without rule clues: 0/0; excluded scores 0.\n\n- [F-excluded] Excluded scores: 0.0% — All readable reviews; excluded is not incorrect.\n- [F-score-status] Score status: — Review statuses, with execution errors lacking a review counted separately.\n- [F-scores] Sample score distributions: — Usable scores by metric; different metrics are never pooled.\n- [F-weak-subsets] Weaker subsets: — Quality normalized by declared metric direction/range; only sufficiently large subsets.\n\n- Analysis calls: 0; skipped facts: 11.\n",
+  "perf_metrics": {},
+  "primary_metric_identity": {
+    "name": "acc",
+    "aggregation": "mean",
+    "dimensions": {}
+  },
+  "primary_metric_unavailable_reason": null,
+  "judge_summary": null,
+  "execution_summary": {
+    "requested": 3,
+    "succeeded": 3,
+    "errored": 0,
+    "incomplete": false,
+    "subsets": {
+      "main": {
+        "requested": 3,
+        "succeeded": 3,
+        "errored": 0
+      }
+    }
+  },
+  "num": 3
+}

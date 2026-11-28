@@ -1,0 +1,3 @@
+{"query":"查询今天长沙天气","trace":[{"role":"user","content":"查询今天长沙天气"},{"tool_name":"weather","tool_args":{"city":"长沙","date":"today"},"tool_result":"长沙今日晴，26度"}],"judge_rubric":"必须调用weather工具，城市参数正确得满分，工具选错0分","target_tool":"weather"}
+{"query":"帮我算1+2","trace":[{"role":"user","content":"帮我算1+2"},{"tool_name":"calculator","tool_args":{"expr":"1+2"},"tool_result":"3"}],"judge_rubric":"必须调用计算器工具，表达式正确满分","target_tool":"calculator"}
+{"query":"写一首诗","trace":[{"role":"user","content":"写一首诗"}],"judge_rubric":"不需要调用工具，直接回答得满分，强行调用工具扣分","target_tool":null}

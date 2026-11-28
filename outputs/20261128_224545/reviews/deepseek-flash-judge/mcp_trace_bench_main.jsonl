@@ -1,0 +1,3 @@
+{"index": 0, "sample_score": {"sample_id": "s0", "score": {"value": {"acc": 10}}}}
+{"index": 1, "sample_score": {"sample_id": "s1", "score": {"value": {"acc": 10}}}}
+{"index": 2, "sample_score": {"sample_id": "s2", "score": {"value": {"acc": 0}}}}

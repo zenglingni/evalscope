@@ -1,0 +1,3 @@
+dataset_name: mcp_trace_bench
+model_name: deepseek-flash-judge
+eval_type: custom

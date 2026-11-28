@@ -1,0 +1,263 @@
+{
+  "schema_version": 7,
+  "analyzer_version": "3.4.7",
+  "taxonomy_version": "1.2",
+  "run_dir": "/Users/zengzini/Downloads/eval/test/evalscope/mcp_agent_eval/outputs/20261128_224545",
+  "model": "deepseek-flash-judge",
+  "benchmark": "mcp_trace_bench",
+  "level": "facts",
+  "diagnosis_model": null,
+  "self_evaluation": false,
+  "narrative": null,
+  "narrative_status": "not_requested",
+  "narrative_samples": {},
+  "generated_at": "2026-11-28T14:45:51.839430+00:00",
+  "config_fingerprint": "77eabd3ea72d4e0067a6b32c7233a890453a89cfe92f45b8ebd8d42939bb8661",
+  "data_fingerprint": "5975165c7eb686687034e1abb884a13104f3b3f722cfef2d1e1e6dd260c4c923",
+  "samples_sha256": "f2cd242de5181d9dac82ccaad7dc449e614b890ce419e1757c9e39b5d8a640bc",
+  "coverage": {
+    "samples": 3,
+    "task_success_known": 0,
+    "task_failed": 0,
+    "outcome_unknown": 3,
+    "excluded": 0,
+    "errored_without_record": 0,
+    "unreadable": 0,
+    "unexplained_failures": 0,
+    "risk_samples": 0,
+    "proposals_without_rule_clues": 0,
+    "skipped_facts": {
+      "F-task-failure": "No eligible samples with the required evidence.",
+      "F-judge": "No judge_summary in the source report.",
+      "F-perf": "No performance metrics in the source report.",
+      "F-empty": "No eligible samples with the required evidence.",
+      "F-extraction": "No eligible samples with the required evidence.",
+      "F-truncation": "No eligible samples with the required evidence.",
+      "F-refusal": "No eligible samples with the required evidence.",
+      "F-length": "No non-agent generations with known task outcomes.",
+      "F-mcq": "Insufficient unambiguous single-letter gold/pred pairs.",
+      "F-repeats": "repeats is not greater than one.",
+      "F-agent": "No agent trace or tool calls."
+    },
+    "analysis_errors": {},
+    "selection_scope": null,
+    "diagnosis_population": 0,
+    "selected": 0,
+    "diagnosed_ok": 0,
+    "diagnosis_statuses": {},
+    "citations_total": 0,
+    "citations_valid": 0
+  },
+  "cost": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cached_calls": 0,
+    "estimated_calls": 0,
+    "estimated_input_tokens": 0,
+    "usage_missing_calls": 0
+  },
+  "facts": [
+    {
+      "id": "F-excluded",
+      "kind": "generic",
+      "severity": "info",
+      "title": "Excluded scores",
+      "value": 0.0,
+      "unit": "fraction",
+      "definition": "All readable reviews; excluded is not incorrect.",
+      "numerator": 0,
+      "denominator": 3,
+      "samples": [],
+      "data": {}
+    },
+    {
+      "id": "F-score-status",
+      "kind": "generic",
+      "severity": "info",
+      "title": "Score status",
+      "value": null,
+      "unit": "",
+      "definition": "Review statuses, with execution errors lacking a review counted separately.",
+      "numerator": null,
+      "denominator": null,
+      "samples": [],
+      "data": {
+        "statuses": {
+          "success": 3
+        },
+        "errored_without_record": 0,
+        "reasons": {}
+      }
+    },
+    {
+      "id": "F-scores",
+      "kind": "generic",
+      "severity": "info",
+      "title": "Sample score distributions",
+      "value": null,
+      "unit": "",
+      "definition": "Usable scores by metric; different metrics are never pooled.",
+      "numerator": null,
+      "denominator": null,
+      "samples": [
+        {
+          "subset": "main",
+          "index": 2
+        },
+        {
+          "subset": "main",
+          "index": 0
+        },
+        {
+          "subset": "main",
+          "index": 1
+        }
+      ],
+      "data": {
+        "metrics": [
+          {
+            "metric": "acc",
+            "n": 3,
+            "mean": 6.666666666666667,
+            "min": 0.0,
+            "max": 10.0,
+            "bins": [
+              {
+                "bin": 0,
+                "count": 1
+              },
+              {
+                "bin": 9,
+                "count": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "F-weak-subsets",
+      "kind": "generic",
+      "severity": "info",
+      "title": "Weaker subsets",
+      "value": null,
+      "unit": "",
+      "definition": "Quality normalized by declared metric direction/range; only sufficiently large subsets.",
+      "numerator": null,
+      "denominator": null,
+      "samples": [],
+      "data": {
+        "items": [],
+        "min_samples": 20,
+        "gap": 0.1
+      }
+    }
+  ],
+  "patterns": [],
+  "limitations": [
+    "Rule findings are observations, not proved causes. Outcome unknown is not a pass.",
+    "Observed issue groups may overlap; their counts must not be added.",
+    "Provenance and state changes alone do not establish policy violations."
+  ],
+  "facts_config": {
+    "language": "auto",
+    "trace": {
+      "repeat_min_count": 3,
+      "no_progress_tail": 4,
+      "oscillation_min_length": 4,
+      "error_patterns": {
+        "traceback": "Traceback \\(most recent call last\\)",
+        "exception_prefix": "(?m)^\\s*[A-Z][A-Za-z]*(?:Error|Exception):\\s",
+        "validation_error": "\\b\\d+ validation errors? for\\b|\\bValidationError\\b",
+        "exit_code": "(?i)\\b(?:exit code|returncode|exit status)[:= ]+[1-9]\\d*",
+        "not_found_tool": "(?i)(?:is not registered|unknown tool|invalid tool \\S+ provided|is not a valid tool)",
+        "empty_function_name": "(?i)empty function name provided"
+      },
+      "guard_patterns": {
+        "blocked_by_policy": "(?i)\\bblocked by (?:the )?(?:policy|guard|guardrail|safety filter)\\b",
+        "denied_by": "(?i)\\b(?:denied|rejected) by (?:the )?(?:policy|guard|guardrail|administrator|approver)\\b",
+        "requires_approval": "(?i)\\brequires? (?:human |user )?approval\\b",
+        "not_permitted": "(?i)\\boperation not permitted by policy\\b"
+      },
+      "environment_patterns": {
+        "timeout": "(?i)\\bTimeoutError\\b|\\bTimeoutException\\b|\\btimed out\\b|\\bdeadline exceeded\\b",
+        "sandbox": "(?i)\\bsandbox (?:error|not found|was killed|timeout)\\b|\\benvd\\b|\\bOOMKilled\\b|No space left on device",
+        "network": "(?i)\\bConnection(?:Error| refused| reset| aborted)\\b|\\bReadTimeout\\b|Name or service not known|\\bService Unavailable\\b|\\bBad Gateway\\b|\\bGateway Timeout\\b|\\brate limit(?:ed)?\\b|\\bHTTP(?:Error)? 5\\d\\d\\b"
+      },
+      "side_effect_verbs": [
+        "send",
+        "delete",
+        "remove",
+        "transfer",
+        "pay",
+        "update",
+        "create",
+        "write",
+        "post",
+        "share",
+        "invite",
+        "book",
+        "reserve",
+        "cancel",
+        "schedule",
+        "reschedule",
+        "append",
+        "modify",
+        "move",
+        "rename",
+        "upload",
+        "add",
+        "edit",
+        "purchase",
+        "buy",
+        "order",
+        "publish",
+        "forward",
+        "reply",
+        "grant",
+        "revoke",
+        "kick",
+        "ban"
+      ],
+      "shell_tool_names": [
+        "bash",
+        "shell",
+        "execute_bash",
+        "run_command",
+        "terminal",
+        "execute",
+        "sh"
+      ],
+      "shell_risk_patterns": {
+        "rm_recursive_force": "\\brm\\s+(?:-[a-zA-Z]*[rR][a-zA-Z]*f|-[a-zA-Z]*f[a-zA-Z]*[rR]|--recursive\\s+--force|-r\\s+-f|-f\\s+-r)",
+        "http_upload": "\\b(?:curl|wget)\\b[^\\n]*(?:\\s-X\\s*POST|\\s--data|\\s-d\\s|\\s-F\\s|--upload-file|\\s-T\\s|--post-data)",
+        "pipe_to_shell": "\\b(?:curl|wget)\\b[^\\n|]*\\|\\s*(?:sudo\\s+)?(?:ba|z)?sh\\b",
+        "chmod_world_writable": "\\bchmod\\s+(?:-R\\s+)?0?777\\b",
+        "git_push": "\\bgit\\s+push\\b",
+        "disk_destroy": "\\b(?:mkfs(?:\\.\\w+)?|dd\\s+if=[^\\n]*\\bof=/dev/)",
+        "system_path_write": "(?:>|\\btee\\b)\\s*/(?:etc|usr|bin|sbin|boot)/",
+        "firewall_off": "\\b(?:ufw\\s+disable|iptables\\s+-F|setenforce\\s+0)\\b",
+        "kill_all": "\\b(?:kill\\s+-9\\s+-1|pkill\\s+-9\\s+-f\\s+\\.)"
+      },
+      "refusal_patterns": [
+        "(?i)\\bI(?:'m| am) (?:sorry|unable|not able)\\b.{0,80}\\b(?:can(?:no|')t|cannot|unable|won't|will not)\\b",
+        "(?i)\\bI (?:can(?:no|')t|cannot|won't|will not) (?:help|assist|comply|do that|perform|complete)\\b",
+        "(?i)\\bI must (?:decline|refuse)\\b",
+        "抱歉.{0,20}(?:无法|不能)",
+        "我(?:无法|不能)(?:帮助|协助|完成|执行)"
+      ],
+      "taint_min_string_len": 8,
+      "error_scan_chars": 2000,
+      "outcome_thresholds": {},
+      "outcome_directions": {},
+      "max_evidence_chars_per_case": 4000,
+      "evidence_excerpt_chars": 500,
+      "use_providers": true
+    },
+    "weak_subset_gap": 0.1,
+    "weak_subset_min_samples": 20,
+    "max_examples": 5,
+    "warning_rate": 0.1
+  }
+}
